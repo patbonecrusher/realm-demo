@@ -149,10 +149,10 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         let project = projects[indexPath.row]
-        deleteProject(project)
+        confirmDeleteProject(project: project)
     }
     
-    @objc func confirmDeleteProjectAndTasks(project: Project) {
+    @objc func confirmDeleteProject(project: Project) {
         let alertController = UIAlertController(title: "Delete \(project.name)?", message: "This will deleteit!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Yes, Delete \(project.name)", style: .destructive, handler: {
             alert -> Void in
